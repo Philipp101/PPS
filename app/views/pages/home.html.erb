@@ -1,0 +1,17 @@
+<h1>see all the career steps</h1>
+
+  <% @steps.each do |step| %>
+    <h2><%= step.title %></h2>
+    <h3><%= step.task %></h3>
+    <h4><%= step.institution %></h4>
+  <% end %>
+<br>
+<br>
+<br>
+<h1>see all my skills</h1>
+
+  <% @skills.each do |skill| %>
+    <h2><%= skill.kind %></h2>
+    <h3><%= skill.content %></h3>
+    <h4><%= skill.level %></h4>
+  <% end %>
