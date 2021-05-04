@@ -5,6 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "delete steps and skills from database"
+
+Step.delete_all
+Skill.delete_all
+
 puts "creating career steps"
 
 step1 = Step.create!(title: "Engineer for Machines", task: "Did these and that and sth else", institution: "BMW AG")
