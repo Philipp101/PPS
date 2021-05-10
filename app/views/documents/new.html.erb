@@ -1,0 +1,13 @@
+<%= simple_form_for [@document] do |f| %>
+  <%= f.input :title, as: :string %>
+  <%= f.association :skill, collection: Skill.all.map { |skill| [skill.kind, skill.id] } %>
+  <%= f.association :step, collection: Step.all.map { |step| [step.title, step.task, step.id] } %>
+  <label class="btn btn-success">
+    + Upload Document (optional)
+    <span style="display:none;">
+      <%= f.input :document, as: :file %>
+    </span>
+    </label>
+  <br>
+  <%= f.button :submit, "Add Document", class: "btn btn-success" %>
+<% end %>

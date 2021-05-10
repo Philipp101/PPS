@@ -5,14 +5,14 @@ class SkillsController < ApplicationController
   end
 
   def new
-    @skills = Skill.new
+    @skill = Skill.new
   end
 
   def create
     @skill = Skill.new(skill_params)
     if @skill.save
       flash.notice = "New skill created!"
-      redirect_to skill_path
+      redirect_to root_path
     else
       render :new
     end
@@ -32,5 +32,11 @@ class SkillsController < ApplicationController
     skill = Skill.find(params[:id])
     skill.destroy
     redirect_to skill_path
+  end
+
+  private
+
+  def skill_params
+    params.require(:skill).permit(:content, :level, :kind)
   end
 end
