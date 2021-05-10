@@ -10,19 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_10_131925) do
+ActiveRecord::Schema.define(version: 2021_05_10_195307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "documents", force: :cascade do |t|
     t.string "title"
-    t.bigint "step_id", null: false
-    t.bigint "skill_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["skill_id"], name: "index_documents_on_skill_id"
-    t.index ["step_id"], name: "index_documents_on_step_id"
+    t.string "related_step"
+    t.string "related_skill"
   end
 
   create_table "skills", force: :cascade do |t|
@@ -55,6 +53,4 @@ ActiveRecord::Schema.define(version: 2021_05_10_131925) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "documents", "skills"
-  add_foreign_key "documents", "steps"
 end

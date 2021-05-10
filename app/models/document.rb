@@ -1,4 +1,3 @@
 class Document < ApplicationRecord
-  belongs_to :step
-  belongs_to :skill
+  has_one_attached :file, dependent: :destroy
 end

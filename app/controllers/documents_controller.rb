@@ -11,7 +11,7 @@ class DocumentsController < ApplicationController
     @document = Document.new(document_params)
     if @document.save
       flash.notice = "Document added"
-      redirect_to document_path
+      redirect_to root_path
     else
       render :new
     end

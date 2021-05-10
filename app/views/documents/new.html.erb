@@ -1,7 +1,7 @@
 <%= simple_form_for [@document] do |f| %>
   <%= f.input :title, as: :string %>
-  <%= f.association :skill, collection: Skill.all.map { |skill| [skill.kind, skill.id] } %>
-  <%= f.association :step, collection: Step.all.map { |step| [step.title, step.task, step.id] } %>
+  <%= f.input :related_skill, required: false, collection: Skill.all.map { |skill| "#{skill.id}, #{skill.kind}, #{skill.content}" } %>
+  <%= f.input :related_step, required: false, collection: Step.all.map { |step| "#{step.id}, #{step.title}, #{step.task}, #{step.institution}" } %>
   <label class="btn btn-success">
     + Upload Document (optional)
     <span style="display:none;">
