@@ -12,7 +12,7 @@ class StepsController < ApplicationController
     @step = Step.new(step_params)
     if @step.save
       flash.notice = "Career step created!"
-      redirect_to step_path
+      redirect_to root_path
     else
       render :new
     end
@@ -32,5 +32,11 @@ class StepsController < ApplicationController
     step = Step.find(params[:id])
     step.destroy
     redirect_to step_path
+  end
+
+  private
+
+  def step_params
+    params.require(:step).permit(:title, :time_start, :time_end, :task, :institution)
   end
 end
