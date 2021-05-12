@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   def home
     @steps = Step.all
     @skills = Skill.all
+    @documents = Document.all
   end
 
   def new

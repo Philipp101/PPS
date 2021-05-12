@@ -1,3 +1,3 @@
 class Document < ApplicationRecord
-  has_one_attached :file, dependent: :destroy
+  has_one_attached :photo, dependent: :destroy
 end
